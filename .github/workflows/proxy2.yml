@@ -1,0 +1,27 @@
+name: proxy2
+on:  
+  workflow_dispatch:
+  repository_dispatch:
+    types:
+      - webhook-proxy1
+  push:  
+    branches:  [ main ]
+    paths:
+      - 'env.txt'
+      
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v4
+
+      - name: Build the Docker image
+        run: |
+          tar zxvf gost2.tar.gz
+
+          # 代理端口 8888
+          ${{secrets.GOST_SHELL2}}
+
+          # 启动vpn服务 8888
+          ./gost -L=ss2://AEAD_CHACHA20_POLY1305:123456@:8888
