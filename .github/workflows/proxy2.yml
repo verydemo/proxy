@@ -24,4 +24,4 @@ jobs:
           ${{secrets.GOST_SHELL2}}
 
           # 启动vpn服务 8888
-          ./gost -L=ss2://AEAD_CHACHA20_POLY1305:123456@:8888
+          ./gost -L=ss2://AEAD_CHACHA20_POLY1305:jiro1234@:8888
