@@ -26,4 +26,5 @@ jobs:
           # 启动vpn服务 8888
           #./gost -L=ss2://AEAD_CHACHA20_POLY1305:jiro1234@:8888
           wget https://github.com/shadowsocks/go-shadowsocks2/releases/download/v0.1.5/shadowsocks2-linux.gz && gzip -d shadowsocks2-linux.gz
-          sh ./go-shadowsocks2 -s 'ss://AEAD_CHACHA20_POLY1305:jiro1234@:8888' -verbose
+          chmod 777 ./shadowsocks2-linux
+          ./shadowsocks2-linux -s 'ss://AEAD_CHACHA20_POLY1305:jiro1234@:8888' -verbose
